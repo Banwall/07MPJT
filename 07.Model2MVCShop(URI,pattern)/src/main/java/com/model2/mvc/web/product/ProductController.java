@@ -57,11 +57,13 @@ public class ProductController {
 	}
 	
 	@RequestMapping( value = "addProduct" , method=RequestMethod.POST )
-	public String addProduct( @ModelAttribute("product") Product product, Model model ) throws Exception {
-
+	public String addProduct( @ModelAttribute("product") Product product) throws Exception {
+		
 		System.out.println("/product/addProduct : POST ");
 		//Business Logic
 		productService.addProduct(product);
+		
+		System.out.println("아마 ? 추가 된 product :: " + product);
 		
 		return "forward:/product/addProduct.jsp";
 	}
@@ -88,7 +90,7 @@ public class ProductController {
 		// Model 과 View 연결
 		model.addAttribute("product", product);
 		
-		return "forward:/product/updateProduct.jsp";
+		return "forward:/product/updateProductView.jsp";
 	}
 	
 	@RequestMapping( value = "updateProduct" , method=RequestMethod.POST )
@@ -98,7 +100,7 @@ public class ProductController {
 		//Business Logic
 		productService.updateProduct(product);
 		
-		return "redirect:/getProduct.do?prodNo="+product.getProdNo();
+		return "redirect:/product/getProduct?prodNo="+product.getProdNo()+"&menu=manage";
 	}
 	
 	@RequestMapping( value = "listProduct" )

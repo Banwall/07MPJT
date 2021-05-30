@@ -29,7 +29,7 @@
 
 <div style="width:98%; margin-left:10px;">
 
-<form name="detailForm" action="/listProduct.do?menu=${ menu }" method="post">
+<form name="detailForm" action="/product/listProduct?menu=${ menu }" method="post">
 
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
@@ -125,12 +125,12 @@
 				<td align="left">
 				<c:choose>
 				<c:when test="${user.userId == 'admin'}">
-					<a href="/getProduct.do?prodNo=${purchase.prodNo}&menu=${menu}">${purchase.prodName}</a>
+					<a href="/product/getProduct?prodNo=${purchase.prodNo}&menu=${menu}">${purchase.prodName}</a>
 				</c:when>
 				<c:otherwise>
 					<c:choose>
 					<c:when test="${ empty product.proTranCode }">
-							<a href="/getProduct.do?prodNo=${purchase.prodNo}&menu=${ menu }">${purchase.prodName}</a>
+							<a href="/product/getProduct?prodNo=${purchase.prodNo}&menu=${ menu }">${purchase.prodName}</a>
 					</c:when>
 					<c:otherwise>
 						${purchase.prodName}
