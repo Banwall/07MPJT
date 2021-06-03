@@ -57,7 +57,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping( value = "addProduct" , method=RequestMethod.POST )
-	public String addProduct( @ModelAttribute("product") Product product) throws Exception {
+	public String addProduct( @ModelAttribute("product") Product product ) throws Exception {
 		
 		System.out.println("/product/addProduct : POST ");
 		//Business Logic
@@ -106,7 +106,7 @@ public class ProductController {
 	@RequestMapping( value = "listProduct" )
 	public String listProduct( @ModelAttribute("search") Search search , Model model , HttpServletRequest request , 
 							@RequestParam("menu") String menu ) throws Exception{
-		
+
 		System.out.println("/product/listProduct : GET / POST ");
 		
 		if( search.getCurrentPage() ==0 ){
